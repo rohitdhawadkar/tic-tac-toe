@@ -20,9 +20,9 @@ export class GameServer extends EventEmitter {
   private rooms: Map<string, GameRoom> = new Map();
   private wss: WebSocketServer;
 
-  constructor(public readonly port: number) {
+  constructor(wss:WebSocketServer) {
     super();
-    this.wss = new WebSocketServer({ port });
+    this.wss = wss;
 
     this.wss.on('connection', (ws) => {
       ws.on('message', (data) => this.handleMessage(ws, data));
