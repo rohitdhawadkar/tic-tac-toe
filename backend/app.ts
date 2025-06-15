@@ -5,7 +5,7 @@ import GameRoute from "./Routes/GameRoute";
 import { GameServer } from "./controller/GameServer"; // Your existing GameServer class
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Render uses 10000 by default
+const PORT =  10000; // Render uses 10000 by default
 
 // Create HTTP server
 const httpServer = createServer(app);
