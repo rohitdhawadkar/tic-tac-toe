@@ -12,7 +12,7 @@ const CreateGame = () => {
     const [roomId, setRoomId] = useState('');
 
     const handleCreateGame = () => {
-        const ws = connect('ws://localhost:8080');
+        const ws = connect('wss://tic-tac-toe-94oy.onrender.com');
         
         ws.onopen = () => {
             ws.send(JSON.stringify({
