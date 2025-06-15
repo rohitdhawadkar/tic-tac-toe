@@ -1,0 +1,197 @@
+/* GameBoard.css - Black and White Style */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 2rem 0;
+}
+
+.game-wrapper {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.game-header h2 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.game-info {
+    margin-bottom: 1.5rem;
+}
+
+.game-info p {
+    margin: 0.5rem 0;
+    color: #555;
+    font-size: 1rem;
+}
+
+.opponent-info {
+    color: #666;
+    font-style: italic;
+}
+
+.turn-info {
+    font-weight: bold;
+    color: #333;
+}
+
+.turn-info.my-turn {
+    color: #2c5530;
+    background-color: #e8f5e8;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #c3e6c3;
+}
+
+.turn-info.opponent-turn {
+    color: #8b4513;
+    background-color: #fff4e6;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ffcc80;
+}
+
+.game-status {
+    margin-bottom: 1.5rem;
+}
+
+.game-status h3 {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.win-message {
+    color: #2c5530;
+    background-color: #e8f5e8;
+    border: 2px solid #4caf50;
+}
+
+.lose-message {
+    color: #8b4513;
+    background-color: #fff4e6;
+    border: 2px solid #ff9800;
+}
+
+.draw-message {
+    color: #333;
+    background-color: #f0f0f0;
+    border: 2px solid #666;
+}
+
+.board {
+    display: inline-block;
+    border: 3px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+    gap: 2px;
+}
+
+.row {
+    display: flex;
+    gap: 2px;
+}
+
+.row:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell:hover:not(:disabled) {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.cell:disabled {
+    cursor: not-allowed;
+}
+
+.cell:disabled:hover {
+    transform: none;
+}
+
+/* Different colors for X and O */
+.cell.x {
+    color: #333;
+}
+
+.cell.o {
+    color: #666;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.no-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    padding: 2rem;
+ }
+ 
+ .no-game-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+ }
+ 
+ .back-home-btn {
+    width: auto;
+    min-width: 200px;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .back-home-btn:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .back-home-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ }
