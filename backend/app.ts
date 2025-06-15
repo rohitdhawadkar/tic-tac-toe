@@ -18,11 +18,32 @@ const gameServer = new GameServer(wss); // Modify GameServer to accept WebSocket
 
 // Middleware
 app.use(express.json());
+// Add this to your server setup (before routes)
+app.use((req, res, next) => {
+  // Allow all content from your own domain and common CDNs
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; " +
+    "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; " +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+    "img-src 'self' data: https://tic-tac-toe-94oy.onrender.com; " +
+    "connect-src 'self' wss://tic-tac-toe-94oy.onrender.com; " +
+    "font-src 'self' https://fonts.gstatic.com; " +
+    "frame-src 'none'; " +
+    "object-src 'none'"
+  );
+  next();
+});
 app.use("/api/room", GameRoute);
 
 // Health check endpoint (required by Render)
+// Add this WebSocket-specific CSP for HTML responses
 app.get("/", (req, res) => {
-  res.send("Tic Tac Toe Server - WebSocket running on same port");
+  res.setHeader(
+    "Content-Security-Policy",
+    "connect-src 'self' wss://tic-tac-toe-94oy.onrender.com"
+  );
+  res.send("Tic Tac Toe Server - WebSocket Ready");
 });
 
 // Start combined server

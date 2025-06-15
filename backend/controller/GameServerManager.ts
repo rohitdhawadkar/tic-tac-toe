@@ -1,3 +1,4 @@
+import { WebSocketServer } from 'ws';
 import { GameServer } from './GameServer';
 
 class GameServerManager {
@@ -18,7 +19,8 @@ class GameServerManager {
       throw new Error(`Port ${port} already in use`);
     }
 
-    const gameServer = new GameServer(port);
+    const wss = new WebSocketServer({ port });
+    const gameServer = new GameServer(wss);
     this.activeServers.set(port, gameServer);
 
     // Auto-cleanup on close
